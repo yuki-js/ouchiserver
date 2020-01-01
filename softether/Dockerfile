@@ -17,15 +17,15 @@ EXPOSE 1194
 EXPOSE 443
 EXPOSE 992
 
-RUN vpnserver start && \
+RUN ./vpnserver start && \
     sleep 5 && \
-    vpncmd /SERVER localhost /ADMINHUB:DEFAULT /CMD HubCreate ${HUB_NAME} /PASSWORD:${HUB_PASSWD} && \
-    vpncmd /SERVER localhost /ADMINHUB:${HUB_NAME} /CMD UserCreate ${USER_NAME} /GROUP:none /REALNAME:none /NOTE:none && \
-    vpncmd /SERVER localhost /ADMINHUB:${HUB_NAME} /CMD UserPasswordSet ${USER_NAME} /PASSWORD:${USER_PASSWD} && \
-    vpncmd /SERVER localhost /ADMINHUB:${HUB_NAME} /CMD IPsecEnable /L2TP:yes /L2TPRAW:yes /ETHERIP:no /PSK:${COMMON_SECRET} /DEFAULTHUB:${HUB_NAME} && \
-    vpncmd /SERVER localhost /ADMINHUB:${HUB_NAME} /CMD SecureNatEnable && \
-    vpncmd /SERVER localhost /ADMINHUB:${HUB_NAME} /CMD NatEnable && \
-    vpncmd /SERVER localhost /ADMINHUB:${HUB_NAME} /CMD DHCPEnable && \
-    vpnserver stop
+    ./vpncmd /SERVER localhost /ADMINHUB:DEFAULT /CMD HubCreate ${HUB_NAME} /PASSWORD:${HUB_PASSWD} && \
+    ./vpncmd /SERVER localhost /ADMINHUB:${HUB_NAME} /CMD UserCreate ${USER_NAME} /GROUP:none /REALNAME:none /NOTE:none && \
+    ./vpncmd /SERVER localhost /ADMINHUB:${HUB_NAME} /CMD UserPasswordSet ${USER_NAME} /PASSWORD:${USER_PASSWD} && \
+    ./vpncmd /SERVER localhost /ADMINHUB:${HUB_NAME} /CMD IPsecEnable /L2TP:yes /L2TPRAW:yes /ETHERIP:no /PSK:${COMMON_SECRET} /DEFAULTHUB:${HUB_NAME} && \
+    ./vpncmd /SERVER localhost /ADMINHUB:${HUB_NAME} /CMD SecureNatEnable && \
+    ./vpncmd /SERVER localhost /ADMINHUB:${HUB_NAME} /CMD NatEnable && \
+    ./vpncmd /SERVER localhost /ADMINHUB:${HUB_NAME} /CMD DHCPEnable && \
+    ./vpnserver stop
     
 CMD ["/vpnserver/vpnserver", "execsvc"]
