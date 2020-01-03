@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN mkdir jupyter
 WORKDIR /jupyter
 
-RUN apt-get update -y && apt-get update -y \
+RUN apt-get update -y && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends python3 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
