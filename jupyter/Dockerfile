@@ -13,7 +13,7 @@ RUN apt-get install -y --no-install-recommends python3-pip build-essential pytho
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install --upgrade pip setuptools
-RUN pip3 install jupyter
+RUN pip3 install jupyter && pip3 install jupyterlab
 
 # Jupyter のデフォルトポート
 EXPOSE 8888
