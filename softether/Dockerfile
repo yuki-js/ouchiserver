@@ -6,6 +6,6 @@ WORKDIR /vpnserver
 RUN make i_read_and_agree_the_license_agreement
 RUN chmod 600 * && chmod 700 vpncmd && chmod 700 vpnserver
 
-EXPOSE 500 4500 1701/tcp 1194/udp 5555/tcp 443/tcp 992/tcp 80/tcp
+EXPOSE 500/udp 4500/udp 1701/tcp 1194/udp 443/tcp
     
 CMD ["/vpnserver/vpnserver", "execsvc"]
