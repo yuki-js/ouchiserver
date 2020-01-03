@@ -4,9 +4,8 @@ ENV LANG C.UTF-8
 
 ENV DEBIAN_FRONTEND noninteractive
 
-ENV APP_ROOT /usr/src
-WORKDIR $APP_ROOT
-COPY src $APP_ROOT
+RUN mkdir jupyter
+WORKDIR /jupyter
 
 RUN apt-get update -y && apt-get update -y \
     && apt-get install -y --no-install-recommends python3 \
