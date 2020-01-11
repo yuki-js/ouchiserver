@@ -1,0 +1,6 @@
+[submodule "nginx-proxy"]
+	path = nginx-proxy
+	url = https://github.com/jwilder/nginx-proxy
+[submodule "letsencrypt-nginx-proxy-companion"]
+	path = letsencrypt-nginx-proxy-companion
+	url = https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion
