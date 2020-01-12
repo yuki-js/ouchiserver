@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+  jupyter:
+    build: jupyter
+    ports:
+      - "8888:8888"
+    environment:
+      - "VIRTUAL_HOST=kuwana.mynumber.dev"
+      - "VIRTUAL_PORT=8888"
+      - "LETSENCRYPT_HOST=kuwana.mynumber.dev"
+    
+
+  softether:
+    build: softether
+    net: "host"
+    privileged: true
+
+  nginx:
+    build: nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/nginx/certs
+      - /etc/nginx/vhost.d
+      - /usr/share/nginx/html
+      - "/var/run/docker.sock:/tmp/docker.sock:ro"
+  nginx-proxy-letsencrypt:
+    build: nginx-proxy-letsencrypt
+    volumes_from:
+      - nginx-proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      

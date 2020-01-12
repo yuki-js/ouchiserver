@@ -8,7 +8,7 @@ RUN mkdir jupyter
 WORKDIR /jupyter
 
 RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install -y --no-install-recommends python3-pip build-essential python3-dev libzmq3-dev \
+RUN apt-get install -y --no-install-recommends python3-pip build-essential python3-dev libzmq3-dev zlib1g-dev libjpeg-dev imagemagick \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
