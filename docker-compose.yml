@@ -1,11 +1,10 @@
 version: '2'
 
 services:
-   softether:
+  softether:
     build: softether
     network_mode: "host"
     privileged: true
-
   nginx:
     build: nginx-proxy
     ports:
