@@ -5,7 +5,7 @@ services:
     build: softether
     network_mode: "host"
     privileged: true
-  nginx:
+  nginx-proxy:
     build: nginx-proxy
     ports:
       - "80:80"
