@@ -27,7 +27,7 @@ services:
       - /usr/share/nginx/html
       - "/var/run/docker.sock:/tmp/docker.sock:ro"
   nginx-proxy-letsencrypt:
-    build: nginx-proxy-letsencrypt
+    build: letsencrypt-nginx-proxy-companion
     volumes_from:
       - nginx-proxy
     volumes:
