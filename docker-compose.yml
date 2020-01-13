@@ -9,8 +9,6 @@ services:
     build: jupyter
     ports:
       - "8888:8888"
-    depends_on:
-      - nginx-proxy
     environment:
       - "VIRTUAL_HOST=kuwana.mynumber.dev"
       - "VIRTUAL_PORT=8888"
