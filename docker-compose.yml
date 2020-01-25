@@ -1,10 +1,12 @@
-version: '2'
+version: '3'
 
 services:
   softether:
     build: softether
     network_mode: "host"
     privileged: true
+    volumes:
+      - /vpnserver/vpn_server.config
   jupyter:
     build: jupyter
     ports:
