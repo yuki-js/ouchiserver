@@ -17,3 +17,6 @@ services:
       - "VIRTUAL_HOST=kuwana.mynumber.dev"
       - "VIRTUAL_PORT=8888"
       - "LETSENCRYPT_HOST=kuwana.mynumber.dev"
+
+volumes:
+  jupyter_data:
