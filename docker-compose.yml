@@ -11,6 +11,8 @@ services:
     build: jupyter
     ports:
       - "80:8888"
+    volumes:
+      - jupyter_data:/jupyter
     environment:
       - "VIRTUAL_HOST=kuwana.mynumber.dev"
       - "VIRTUAL_PORT=8888"
