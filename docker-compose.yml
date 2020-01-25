@@ -6,7 +6,7 @@ services:
     network_mode: "host"
     privileged: true
     volumes:
-      - softether_config:/vpnserver/vpn_server.config
+      - softether_config:/vpnserver/config
     restart: always
   jupyter:
     build: jupyter
